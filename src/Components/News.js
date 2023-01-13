@@ -38,7 +38,7 @@ export default class News extends Component {
     async updateNews() {
         await this.props.setLoaderColor(this.props.loadcolor)
         this.props.setProgress(10);
-        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=bc7abbd8f7aa468c83ed108d9b24e8ee&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true })
         let data = await fetch(url);
         this.props.setProgress(30);
@@ -53,7 +53,7 @@ export default class News extends Component {
     // it will automatic run just after render
     componentDidMount() {
 
-        // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=bc7abbd8f7aa468c83ed108d9b24e8ee&page=1&pageSize=${this.props.pageSize}`;
+        // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey={this.props.apiKey}&page=1&pageSize=${this.props.pageSize}`;
         // this.setState({ loading: true })
         // let data = await fetch(url);
         // let parsedData = await data.json();
@@ -64,7 +64,7 @@ export default class News extends Component {
     }
 
     handleprevclick = async () => {
-        // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=bc7abbd8f7aa468c83ed108d9b24e8ee&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+        // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
         // this.setState({ loading: true })
         // let data = await fetch(url);
         // let parsedData = await data.json();
@@ -88,7 +88,7 @@ export default class News extends Component {
         // if (this.state.page + 1 > Math.ceil(this.state.totalResult / this.props.pageSize)) {
         // }
         // else {
-        //     let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=bc7abbd8f7aa468c83ed108d9b24e8ee&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+        //     let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
         //     this.setState({ loading: true })
         //     let data = await fetch(url);
         //     let parsedData = await data.json();
@@ -109,7 +109,7 @@ export default class News extends Component {
         this.setState({
             page: this.state.page + 1,
         })
-        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=bc7abbd8f7aa468c83ed108d9b24e8ee&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
         // this.setState({ loading: true })
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -121,7 +121,7 @@ export default class News extends Component {
         return (
             <>
                 {/* <div className='container my-3'> */}
-                <h1 className='text-center'>News Tracker - Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h1>
+                <h1 className='text-center mt-5 pt-4'>News Tracker - Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h1>
                 {this.state.loading && <Spinner />}
                 {/* <Spinner/> */}
                 <InfiniteScroll
