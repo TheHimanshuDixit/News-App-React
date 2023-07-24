@@ -6,6 +6,7 @@ This is react web application which is used to see news information
 ## Tech Stack
 
 **Frontend:** React Js, Bootstrap
+
 **Data:** News API
 
 
