@@ -1,6 +1,6 @@
 # News App React
 
-This is react web application which is used to see news information
+This is React Web Application which is used to see latest news information.
 
 
 ## Tech Stack
